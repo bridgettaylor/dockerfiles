@@ -95,9 +95,6 @@ COPY pam-helper.sh /usr/lib/rstudio-server/bin/pam-helper
 
 EXPOSE 8787
 
-ENV REDIRECT_URL "http://localhost"
-ENV PASSWORD "rstudiopassword"
-
 ## automatically link a shared volume for kitematic users
 VOLUME /home/rstudio/kitematic
 
