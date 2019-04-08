@@ -9,9 +9,6 @@ ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 ENV PANDOC_TEMPLATES_VERSION=${PANDOC_TEMPLATES_VERSION:-2.6}
 
-ENV REDIRECT_URL "http://localhost"
-ENV PASSWORD "rstudio1"
-
 ## Download and install RStudio server & dependencies
 ## Attempts to get detect latest version, otherwise falls back to version given in $VER
 ## Symlink pandoc, pandoc-citeproc so they are available system-wide
@@ -97,6 +94,9 @@ COPY disable_auth_rserver.conf /etc/rstudio/disable_auth_rserver.conf
 COPY pam-helper.sh /usr/lib/rstudio-server/bin/pam-helper
 
 EXPOSE 8787
+
+ENV REDIRECT_URL "http://localhost"
+ENV PASSWORD "rstudiopassword"
 
 ## automatically link a shared volume for kitematic users
 VOLUME /home/rstudio/kitematic
