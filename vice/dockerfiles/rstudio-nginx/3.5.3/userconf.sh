@@ -2,7 +2,7 @@
 
 ## Set defaults for environmental variables in case they are undefined
 USER=${USER:=rstudio}
-PASSWORD=${PASSWORD:=admin}
+PASSWORD=${PASSWORD:=rstudio1}
 USERID=${USERID:=1000}
 GROUPID=${GROUPID:=1000}
 ROOT=${ROOT:=FALSE}
@@ -26,7 +26,7 @@ fi
 if grep --quiet "auth-none=1" /etc/rstudio/rserver.conf
 then
 	echo "Skipping authentication as requested"
-elif [ "$PASSWORD" == "admin" ]
+elif [ "$PASSWORD" == "rstudio1" ]
 then
     printf "\n\n"
     tput bold
