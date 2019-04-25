@@ -94,12 +94,14 @@ RUN apt-get update \
   && chown -R rstudio:rstudio /home/rstudio/.rstudio
 
 ENV PASSWORD "rstudio1"
-COPY userconf.sh /etc/cont-init.d/userconf
+RUN chmod +x /usr/local/bin/run.sh
+
 
 ## running with "-e ADD=shiny" adds shiny server
 COPY add_shiny.sh /etc/cont-init.d/add
 COPY disable_auth_rserver.conf /etc/rstudio/disable_auth_rserver.conf
 COPY pam-helper.sh /usr/lib/rstudio-server/bin/pam-helper
+COPY userconf.sh /etc/cont-init.d/userconf
 
 EXPOSE 8787
 
