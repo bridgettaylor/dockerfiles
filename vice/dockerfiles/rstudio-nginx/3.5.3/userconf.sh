@@ -26,7 +26,7 @@ fi
 if grep --quiet "auth-none=1" /etc/rstudio/rserver.conf
 then
 	echo "Skipping authentication as requested"
-elif [ "$PASSWORD" == "rstudio1" ]
+elif [ "$PASSWORD" == "rstudio" ]
 then
     printf "\n\n"
     tput bold
